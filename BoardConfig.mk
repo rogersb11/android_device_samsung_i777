@@ -133,6 +133,13 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGER_RES := device/samsung/galaxys2/res/charger
 
+# Nearly all shipped I777 devices have defective eMMC chips (VYL00M fwrev 0x19)
+# Prevent usage of ERASE commands in recovery on these boards.
+# This is redundant for our recovery since the kernel has MMC_CAP_ERASE
+# disabled for mshci.c, and so do nearly all custom kernels,         
+# but leaks have dangerous kernels.
+BOARD_SUPPRESS_EMMC_WIPE := true
+
 # assert
 TARGET_OTA_ASSERT_DEVICE := i777,galaxys2att,SGH-I777
 
