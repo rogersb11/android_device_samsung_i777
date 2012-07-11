@@ -50,7 +50,7 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 # Common GalaxyS2 binaries
 
-COMMON_GALAXYS2_DIRS := camera DeviceSettings gpswrapper tvout tvouthack
+COMMON_GALAXYS2_DIRS := camera DeviceSettings gpswrapper libsensors tvout tvouthack
 include $(foreach gs2dir,$(COMMON_GALAXYS2_DIRS),device/samsung/galaxys2/$(gs2dir)/Android.mk)
 
 endif
